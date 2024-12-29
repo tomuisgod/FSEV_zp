@@ -10,9 +10,9 @@ def menu():
         elif volba == 3:
             pridaj_produkt(produkty)
         elif volba == 4:
-            pass
+            uprav_produkt(produkty)
         elif volba == 5:
-            pass
+            vymaz_produkt(produkty)
         elif volba == 6:
             break
         else:
@@ -61,5 +61,25 @@ def pridaj_produkt(produkty):
                 print("ERROR: Neplatny format, pouzi format 'Nazov produktu : Cena'")
                 continue
 
+def uprav_produkt(produkty):
+    produkt = input("Zadaj nazov produktu: ")
+    if produkt in produkty:
+        try:
+            print(f"Vybral si si produkt {produkt} : {produkty[produkt]} $")
+            cena = float(input("Zadaj novu cenu produktu: "))
+            produkty[produkt] = cena
+            print(f"Cena produktu {produkt} bola zmenena na {cena} $")
+        except ValueError:
+            print("ERROR: Nezadal si cislo")
+    else:
+        print("ERROR: Produkt, ktory si si vybral neexistuje")
+
+def vymaz_produkt(produkty):
+    produkt = input("Zadaj nazov produktu: ")
+    if produkt in produkty:
+        del produkty[produkt]
+        print(f"Produkt {produkt} bol uspesne vymazany zo slovnika")
+    else:
+        print("ERROR: Produkt neexistuje")
 
 menu()
