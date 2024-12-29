@@ -1,0 +1,3 @@
+Tomas,24,1200
+Alzbeta,31,1843
+Tadeas,42,2020
